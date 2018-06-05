@@ -1,7 +1,7 @@
 $defaultFont: 'Ubuntu Mono', monospace;
-$dark: rgb(22, 22, 22);
-$green: rgb(22, 165, 22);
-$blue: rgb(20, 2, 61);
+$dark-gray: rgb(22, 22, 22);
+$light-green: rgb(22, 165, 22);
+$dark-blue: rgb(20, 2, 61);
 
 body {
     display: grid;
@@ -12,8 +12,8 @@ body {
                          'section'
                          'main'
                          'footer';
-    background: $dark;
-    color: $green;
+    background: $dark-gray;
+    color: $light-green;
 }
 
 h1 {
@@ -37,7 +37,7 @@ header {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: $blue; 
+    background: $dark-blue; 
 }
 
 footer {
@@ -46,7 +46,7 @@ footer {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: $blue;
+    background: $dark-blue;
 }
 
 section {
@@ -61,19 +61,29 @@ main {
     display: flex;
     text-align: left;
     font-size: 1rem;
-    color: invert($dark);
+    color: invert($dark-gray);
     padding: 1rem 1rem;
 }
 
-.command {
+#description {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 1rem;
+    color: invert($dark-gray);
+    padding: 5rem 1rem;
+}
+
+#command {
     text-align: center;
     font-family: $defaultFont;
     font-size: 1.5rem;
-
+    color: green;
 }
 
-
-
+#command .letter {
+    padding: 0 .5rem;
+}
 
 @media screen and (min-width: 1400px) {
 }

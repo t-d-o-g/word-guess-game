@@ -14,8 +14,22 @@ function getRandCommand() {
     });
 }
 
-var command = getRandCommand();
-command.then(function (item) {
-    console.log("Command: ", item.command);
-    console.log("Description: ", item.description);
+function blankWord(word) {
+    var underscoreSpans = '';
+    for (var i = 0; i < word.length; i++) {
+        underscoreSpans += "<span class='letter'>__</span>";
+    }
+    return underscoreSpans;
+}
+
+
+var descriptionEl = document.getElementById('description');
+var commandEl = document.getElementById('command');
+document.addEventListener('keypress', function(evt) {
+    var randCommand = getRandCommand();
+    randCommand.then(function (item) {
+        descriptionEl.innerHTML = item.description;
+        // commandEl.innerHTML = item.command;
+        commandEl.innerHTML = blankWord(item.command);
+    });
 });
