@@ -1,0 +1,50 @@
+<!DOCTYPE html> 
+
+<html lang="us-en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Commandline Hangman</title>
+
+    <link href="assets/css/reset.css" rel="stylesheet" onerror=sheetError()>
+    <link href="assets/css/main.css" rel="stylesheet" onerror=sheetError()>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Commandline Hangman</h1>
+    </header>
+    <section>
+        <div class="score">
+            <table>
+                <tr> 
+                    <th>Score:</th>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <th>Guesses:</th>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <th>Letters:</th>
+                    <td>_</td>
+                </tr>
+            </table>
+        </div>
+        <div class="description">
+        </div>
+    </section>
+    <main>
+        <div class="command">
+            <p>Press any key to get started!</p>
+        </div>
+    </main>
+    <footer>
+        <small>&copy;2018<small>
+    </footer>
+    <script src="assets/javascript/game.js" type="text/javascript"/>
+</body>
+</html>    
