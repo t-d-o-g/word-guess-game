@@ -5,7 +5,7 @@ function readFile(file) {
 }
 
 function getRandCommand() {
-    var words = readFile('../json/commands.json');
+    var words = readFile('./assets/json/commands.json');
 
     return words.then(function(text) {
         var wordObj = JSON.parse(text);
