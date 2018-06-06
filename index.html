@@ -18,28 +18,31 @@
         <h1>Commandline Hangman</h1>
     </header>
     <section>
-        <div class="score">
+        <div class="score-table">
             <table>
                 <tr> 
                     <th>Score:</th>
-                    <td>0</td>
+                    <td id="score"></td>
                 </tr>
                 <tr>
                     <th>Guesses:</th>
-                    <td>10</td>
+                    <td id="guesses"></td>
                 </tr>
                 <tr>
                     <th>Letters:</th>
-                    <td>_</td>
+                    <td id="letters"></td>
                 </tr>
             </table>
+        </div>
+        <div id="message">
+            <p>Select a Letter.<p>
         </div>
         <div id="description">
         </div>
     </section>
     <main>
         <div id="command">
-            Press any key to get started!
+            Press space key to get started.
         </div>
     </main>
     <footer>
