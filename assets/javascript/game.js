@@ -33,3 +33,4 @@ document.addEventListener('keypress', function(evt) {
         commandEl.innerHTML = blankWord(item.command);
     });
 });
+console.log('JS LOADED!');
