@@ -1,4 +1,4 @@
-addEventListener("load", function() {
+window.onload = function () {
     function readFile(file) {
         return fetch(file).then(function (response) {
             return response.text();
@@ -35,4 +35,4 @@ addEventListener("load", function() {
         });
     });
     console.log('JS LOADED!');
-})
+}
