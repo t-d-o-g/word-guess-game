@@ -1,4 +1,3 @@
-window.onload = function () {
     function readFile(file) {
         return fetch(file).then(function (response) {
             return response.text();
@@ -34,5 +33,3 @@ window.onload = function () {
             commandEl.innerHTML = blankWord(item.command);
         });
     });
-    console.log('JS LOADED!');
-};
