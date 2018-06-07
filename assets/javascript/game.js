@@ -40,6 +40,15 @@ function updateWord(letter, word, currWord) {
     console.log(updatedWord);
 }
 
+function youWin(currWord, score) {
+    console.log(currWord);
+    if (currWord.indexOf("<span class='letter'>_</span>") === -1) {
+        messageEl.innerHTML = 'You win.';
+        score++;
+    }
+    return score;
+}
+
 
 
 var descriptionEl = document.getElementById('description');
@@ -74,7 +83,7 @@ document.addEventListener('keyup', function(evt) {
             messageEl.style.display = 'block';
             descriptionEl.innerHTML = description;
             var currentWord = initWord(command);
-            commandEl.innerHTML = currentWord.join("");
+            commandEl.innerHTML = currentWord.join('');
 
             document.addEventListener('keyup', function(evt) {
                 messageEl.innerHTML = 'Select a Letter.';
@@ -88,19 +97,20 @@ document.addEventListener('keyup', function(evt) {
                 } 
                 else if (command.indexOf(letter) > -1) {
                     currentWord = updateWord(letter, command, currentWord);
-                    commandEl.innerHTML = currentWord.join("");
+                    commandEl.innerHTML = currentWord.join('');
                     lettersRight.push(letter);
+                    scoreEl.innerHTML = youWin(currentWord, score);
                 } else {
-                    console.log(letter + " is not in word");
+                    console.log(letter + ' is not in word');
                     lettersWrong.push(letter);
                     totalGuesses--;
                     guessesEl.innerHTML = totalGuesses;
-                    lettersEl.innerHTML = lettersWrong;
+                    lettersEl.innerHTML = lettersWrong.join('');
                 }
                 letters.push(letter);
                 console.log('Total tries: ', totalGuesses);
                 if (totalGuesses === 0) {
-                    messageEl.innerHTML = "You lose, Try again.";
+                    messageEl.innerHTML = 'You lose, Try again.';
                 }
             }); 
         });
