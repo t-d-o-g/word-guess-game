@@ -28,7 +28,6 @@ function initWord(word) {
 function updateWord(letter, word, currWord) {
     var htmlLetter = "<span class='letter'>"+letter+'</span>';
     var updatedWord = [];
-    console.log(letter + " is in " + word);
     for (var i = 0; i < word.length; i++) {
         if (letter === word[i]) {
             updatedWord.push(htmlLetter);
@@ -37,19 +36,17 @@ function updateWord(letter, word, currWord) {
         }
     }
     return updatedWord;
-    console.log(updatedWord);
 }
 
-function youWin(currWord, score) {
-    console.log(currWord);
+function youWin(currWord, score, guesses, letters) {
     if (currWord.indexOf("<span class='letter'>_</span>") === -1) {
         messageEl.innerHTML = 'You win.';
         score++;
+        guesses
+        letters = [];
     }
     return score;
 }
-
-
 
 var descriptionEl = document.getElementById('description');
 var commandEl = document.getElementById('command');
@@ -60,6 +57,13 @@ var lettersEl = document.getElementById('letters');
 
 // Game starts when key is pressed
 document.addEventListener('keyup', function(evt) {
+    var score = 0;
+    var totalGuesses = 10;
+    var letters = [];
+    var lettersRight = [];
+    var lettersWrong = [];
+    var randCommand = '';
+
     if (evt.defaultPrevented) {
         return;
     }
@@ -67,19 +71,18 @@ document.addEventListener('keyup', function(evt) {
     var startKey = evt.key || evt.keyCode;
 
     if (startKey === ' ') {
-        var score = 0;
-        var totalGuesses = 10;
-        var letters = [];
-        var lettersRight = [];
-        var lettersWrong = [];
-        var randCommand = getRandCommand();
+        totalGuesses = 10;
+        letters = [];
+        lettersRight = [];
+        lettersWrong = [];
+        randCommand = getRandCommand();
 
         randCommand.then(function (item) {
             var description = item.description;
             var command = item.command;
-            console.log(command);
             scoreEl.innerHTML = score;
             guessesEl.innerHTML = totalGuesses;
+            lettersEl.innerHTML = lettersWrong.join('');
             messageEl.style.display = 'block';
             descriptionEl.innerHTML = description;
             var currentWord = initWord(command);
@@ -92,6 +95,7 @@ document.addEventListener('keyup', function(evt) {
                 }
 
                 var letter = evt.key || evt.keyCode;
+
                 if (lettersRight.includes(letter) || lettersWrong.includes(letter)) {
                     messageEl.innerHTML = 'That letter has already been selected.';
                 } 
@@ -100,15 +104,17 @@ document.addEventListener('keyup', function(evt) {
                     commandEl.innerHTML = currentWord.join('');
                     lettersRight.push(letter);
                     scoreEl.innerHTML = youWin(currentWord, score);
+                    if (currentWord.indexOf("<span class='letter'>_</span>") === -1) {
+                        messageEl.innerHTML = 'You win.';
+                        score++;
+                    }
                 } else {
-                    console.log(letter + ' is not in word');
                     lettersWrong.push(letter);
                     totalGuesses--;
                     guessesEl.innerHTML = totalGuesses;
                     lettersEl.innerHTML = lettersWrong.join('');
                 }
                 letters.push(letter);
-                console.log('Total tries: ', totalGuesses);
                 if (totalGuesses === 0) {
                     messageEl.innerHTML = 'You lose, Try again.';
                 }
