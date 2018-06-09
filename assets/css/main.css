@@ -70,3 +70,21 @@ main {
 
 #command .letter {
   padding: 0 .5rem; }
+
+@media screen and (min-width: 1400px) {
+  #mobile-input {
+    display: none; } }
+
+@media screen and (min-width: 300px) {
+  #mobile-input {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 1px;
+    background-color: #161616; }
+  input[type="text"] {
+    background-color: #161616;
+    outline: 0;
+    box-shadow: none !important;
+    border: 1px solid #161616 !important;
+    color: #161616; } }
