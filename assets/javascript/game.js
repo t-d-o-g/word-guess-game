@@ -12,8 +12,7 @@ function getRandCommand() {
     return words.then(function(text) {
         var wordObj = JSON.parse(text);
         var i = Math.floor(Math.random() * wordObj.length);
-        // return wordObj[i];
-        return wordObj[5];
+        return wordObj[i];
     });
 }
 
