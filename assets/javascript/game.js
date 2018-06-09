@@ -12,7 +12,8 @@ function getRandCommand() {
     return words.then(function(text) {
         var wordObj = JSON.parse(text);
         var i = Math.floor(Math.random() * wordObj.length);
-        return wordObj[i];
+        // return wordObj[i];
+        return wordObj[5];
     });
 }
 
@@ -124,7 +125,7 @@ document.body.addEventListener('keyup', function(evt) {
             gameInfo.lettersRight.push(key);
             scoreEl.innerHTML = youWin(currentWord, gameInfo.score);
             if (currentWord.indexOf("<span class='letter'>_</span>") === -1) {
-                messageEl.innerHTML = 'You got it, Try another.';
+                messageEl.innerHTML = 'Got it, Try another.';
                 gameInfo.score++;
                 resetGame(gameInfo);
             }
