@@ -89,6 +89,4 @@ main {
     border: 1px solid #161616 !important;
     color: #161616;
     font-size: 16px;
-    caret-color: transparent; }
-  input[type=text]:focus {
-    outline: none; } }
+    caret-color: transparent; } }
