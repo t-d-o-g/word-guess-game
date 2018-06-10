@@ -51,7 +51,7 @@ window.onload = function () {
 
     function startGame(game) {
         randCommand = getRandCommand();
-        messageEl.innerHTML = 'Select a Letter.';
+        messageEl.innerHTML = 'Select a Key.';
 
         randCommand.then(function (cmd) {
             scoreEl.innerHTML = game.score;
@@ -104,7 +104,7 @@ window.onload = function () {
     startGame(gameInfo);
 
     document.body.addEventListener('keyup', function(evt) {
-        messageEl.innerHTML = 'Select a Letter.';
+        messageEl.innerHTML = 'Select a Key.';
         guessesEl.innerHTML = gameInfo.totalGuesses;
         var key = '';
 
@@ -121,7 +121,7 @@ window.onload = function () {
         randCommand.then(function (cmd) {
             messageEl.innerHTML = 'Select a Letter.';
             if (gameInfo.lettersRight.includes(key) || gameInfo.lettersWrong.includes(key)) {
-                messageEl.innerHTML = 'That letter has already been selected.';
+                messageEl.innerHTML = 'That key has already been selected.';
             } else if (cmd.command.indexOf(key) > -1) {
                 currentWord = updateWord(key, cmd.command, currentWord);
                 commandEl.innerHTML = currentWord.join('');
