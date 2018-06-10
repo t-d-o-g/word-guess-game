@@ -119,7 +119,7 @@ window.onload = function () {
         }
 
         randCommand.then(function (cmd) {
-            messageEl.innerHTML = 'Select a Letter.';
+            messageEl.innerHTML = 'Select a Key.';
             if (gameInfo.lettersRight.includes(key) || gameInfo.lettersWrong.includes(key)) {
                 messageEl.innerHTML = 'That key has already been selected.';
             } else if (cmd.command.indexOf(key) > -1) {
